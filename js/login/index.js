@@ -26,6 +26,8 @@ window.onload = function() {
         })
         .then(response =>response.json())
         .then(data=>{
+            console.log(data)
+            debugger
             if (data.error==true){
                alert(data.message)
             } 
@@ -42,3 +44,4 @@ window.onload = function() {
 
 
 }
+
