@@ -1,5 +1,20 @@
 window.onload = function() {
+    
+    function verificarLogeo(a) { 
+         if (a == null) {
+            window.location.href='./index.html';  
+        }
+    }
 
+    let auth2 = localStorage.getItem('autenticado');
+    verificarLogeo(auth2); 
+
+    let logout =document.querySelector('#logout');
+    logout.addEventListener('click',function () {
+        localStorage.removeItem('autenticado');
+        auth2 = localStorage.getItem('autenticado');
+        verificarLogeo(auth2);
+    })
 
     fetch("https://basic-server-one.vercel.app/users")
     .then(function(response){          // Rpta de la Api
@@ -30,6 +45,6 @@ window.onload = function() {
             table.innerHTML=bodyTable; 
     })
     .catch(function(error) {
-        console.log ('interrupcion '+error)
+        alert('Ups ha ocurrido un error : '+error) // Obtengo error en el trafico
     })
 }

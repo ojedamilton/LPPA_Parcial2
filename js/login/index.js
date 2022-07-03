@@ -1,7 +1,6 @@
 window.onload = function() {
     
-    let autenticado = localStorage.getItem('autenticado');
-   
+    let autenticado = localStorage.getItem('autenticado');  
     if (autenticado) {
         window.location.href ='./dashboard.html' 
     }
@@ -26,8 +25,6 @@ window.onload = function() {
         })
         .then(response =>response.json())
         .then(data=>{
-            console.log(data)
-            debugger
             if (data.error==true){
                alert(data.message)
             } 
