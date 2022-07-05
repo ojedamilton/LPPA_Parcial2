@@ -33,7 +33,14 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
-
+.error{
+    display: block;
+    color: rgb(172, 54, 54);
+    
+}
+.msg{
+    display: none;
+}
 #login {
     width: 100%;
     padding: 50px 30px;

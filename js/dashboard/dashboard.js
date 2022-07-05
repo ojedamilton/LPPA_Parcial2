@@ -45,6 +45,6 @@ window.onload = function() {
             table.innerHTML=bodyTable; 
     })
     .catch(function(error) {
-        alert('Ups ha ocurrido un error : '+error) // Obtengo error en el trafico
+        console.log('Ups ha ocurrido un error : '+error) // Obtengo error en el trafico
     })
 }

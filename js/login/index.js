@@ -11,6 +11,7 @@ window.onload = function() {
     evento.preventDefault();
     let email = document.querySelector('#email').value;
     let password = document.querySelector('#password').value;
+    let errorLogin = document.querySelector('#error');
     console.log('email '+email);
     console.log('pw '+password);
         fetch("https://basic-server-one.vercel.app/login", {
@@ -25,8 +26,11 @@ window.onload = function() {
         })
         .then(response =>response.json())
         .then(data=>{
-            if (data.error==true){
-               alert(data.message)
+            console.log(data);
+            if (data.error || data.errors){
+                errorLogin.innerHTML='Wrong email or password';
+                errorLogin.classList.remove('msg');
+                errorLogin.classList.add('error');     
             } 
             else{
                 localStorage.setItem('autenticado',true)
@@ -34,7 +38,8 @@ window.onload = function() {
             }
         })
         .catch(function(error) {
-            console.log ('interrupcion '+error)
+            console.log ('interrupcion '+error);
+            return
         })
 
     });
